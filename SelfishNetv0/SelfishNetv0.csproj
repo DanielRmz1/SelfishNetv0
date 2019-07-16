@@ -129,6 +129,9 @@
     <None Include="Resources\toolStripButton4.Image.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\172.png" />
+    <None Include="Resources\167.png" />
+    <None Include="Resources\176.png" />
     <Content Include="this.Ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -98,19 +98,19 @@ namespace SelfishNetv0
             try
             {
                 str = Dns.EndResolve(re).HostName;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            if (str == (string)null)
+              if (str == (string)null)
                 str = "noname";
             object[] objArray = new object[2];
             this.resolvState = objArray;
             objArray[0] = (object)asyncState;
             this.resolvState[1] = (object)str;
-            ArpForm arpForm = this;
-            arpForm.Invoke((Delegate)new DelUpdateName(arpForm.updateTreeViewNameCallBack), this.resolvState);
+            this.Invoke((Delegate)new DelUpdateName(this.updateTreeViewNameCallBack), this.resolvState);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        
         }
 
         private void updateTreeViewNameCallBack(PC pc, string str)
@@ -423,13 +423,7 @@ namespace SelfishNetv0
             while (index < this.treeGridView1.Nodes[0].Nodes.Count);
         }
 
-        private void ArpForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            var rs = MessageBox.Show(this, "Quit ?", "Quit", MessageBoxButtons.YesNo);
-            if (rs == DialogResult.Yes) Environment.Exit(0);
-
-        }
-
+       
 
 
         private void ViewMenuIP_CheckStateChanged(object sender, EventArgs e)
@@ -481,17 +475,15 @@ namespace SelfishNetv0
 
         private void SelfishNetTrayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            this.Visible = true;
+            Show();
             this.WindowState = FormWindowState.Normal;
-            this.SelfishNetTrayIcon.Visible = false;
+           
+            
         }
 
         private void ArpForm_Resize(object sender, EventArgs e)
         {
-            if (this.WindowState != FormWindowState.Minimized)
-                return;
-            this.Visible = false;
-            this.SelfishNetTrayIcon.Visible = true;
+            if (WindowState == FormWindowState.Minimized) Hide();
             this.SelfishNetTrayIcon.ShowBalloonTip(2000);
         }
 
@@ -503,9 +495,14 @@ namespace SelfishNetv0
 
         private void ShowToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Visible = true;
+            Show();
             this.WindowState = FormWindowState.Normal;
-            this.SelfishNetTrayIcon.Visible = false;
+         
+        }
+
+        private void ToolStripButton5_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }
