@@ -57,8 +57,8 @@ namespace SelfishNetv0
             IPAddress iPAddress = new IPAddress(netmask);
             char[] separator = new char[2]
             {
-                '.',
-                '\u0003'
+            '.',
+            '\u0003'
             };
             string[] array = iPAddress.ToString().Split(separator);
             int[] array2 = new int[4];
@@ -72,8 +72,8 @@ namespace SelfishNetv0
             IPAddress iPAddress2 = new IPAddress(localIP);
             char[] separator2 = new char[2]
             {
-                '.',
-                '\u0003'
+            '.',
+            '\u0003'
             };
             string[] array3 = iPAddress2.ToString().Split(separator2);
             int[] array4 = new int[4];
@@ -283,7 +283,7 @@ namespace SelfishNetv0
                     pC.capDown = 0;
                     pC.capUp = 0;
                     pC.isLocalPc = false;
-                    pC.name = string.Empty;
+                    pC.name = "";
                     pC.nbPacketReceivedSinceLastReset = 0;
                     pC.nbPacketSentSinceLastReset = 0;
                     pC.redirect = true;
@@ -348,7 +348,7 @@ namespace SelfishNetv0
             isRedirecting = false;
         }
 
-        private void _007ECArp()
+     public void PCArp()
         {
             if (isDiscovering)
             {
@@ -541,18 +541,19 @@ namespace SelfishNetv0
         {
             if (P_0)
             {
-                _007ECArp();
+                PCArp();
             }
             else
             {
-
+                
             }
         }
 
-        public void Dispose()
+        public  void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
     }
+
 }

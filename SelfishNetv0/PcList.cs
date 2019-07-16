@@ -18,16 +18,11 @@ namespace SelfishNetv0
             pclist = new ArrayList();
         }
 
-        private void _007EPcList()
-        {
-        }
-
         [return: MarshalAs(UnmanagedType.U1)]
         public bool addPcToList(PC pc)
         {
-            lock (pclist.SyncRoot)
-            {
-             foreach (PC item in pclist)
+            Monitor.Enter(pclist.SyncRoot);
+            foreach (PC item in pclist)
             {
                 if (item.ip.ToString().CompareTo(pc.ip.ToString()) == 0)
                 {
@@ -39,13 +34,11 @@ namespace SelfishNetv0
             }
             ArrayList.Synchronized(pclist).Add(pc);
             delOnNewPC?.Invoke(pc);
-            }
-           
-           
+            Monitor.Exit(pclist.SyncRoot);
             return true;
         }
 
-      
+        [return: MarshalAs(UnmanagedType.U1)]
         public bool removePcFromList(PC pc)
         {
             Monitor.Enter(pclist.SyncRoot);
@@ -169,17 +162,11 @@ namespace SelfishNetv0
             delOnPCRemove = callback;
         }
 
-        protected virtual void Dispose([MarshalAs(UnmanagedType.U1)] bool P_0)
-        {
-            if (!P_0)
-            {
+    
 
-            }
-        }
-
-        public void Dispose()
+        public  void Dispose()
         {
-            Dispose(true);
+            
             GC.SuppressFinalize(this);
         }
     }
