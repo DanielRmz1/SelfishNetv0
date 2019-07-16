@@ -25,8 +25,9 @@ namespace SelfishNetv0
         [return: MarshalAs(UnmanagedType.U1)]
         public bool addPcToList(PC pc)
         {
-            Monitor.Enter(pclist.SyncRoot);
-            foreach (PC item in pclist)
+            lock (pclist.SyncRoot)
+            {
+             foreach (PC item in pclist)
             {
                 if (item.ip.ToString().CompareTo(pc.ip.ToString()) == 0)
                 {
@@ -38,11 +39,13 @@ namespace SelfishNetv0
             }
             ArrayList.Synchronized(pclist).Add(pc);
             delOnNewPC?.Invoke(pc);
-            Monitor.Exit(pclist.SyncRoot);
+            }
+           
+           
             return true;
         }
 
-        [return: MarshalAs(UnmanagedType.U1)]
+      
         public bool removePcFromList(PC pc)
         {
             Monitor.Enter(pclist.SyncRoot);

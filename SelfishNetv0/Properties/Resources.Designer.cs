@@ -63,6 +63,26 @@ namespace SelfishNetv0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _112_Minus_Orange_32x32_72 {
+            get {
+                object obj = ResourceManager.GetObject("_112_Minus_Orange_32x32_72", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _112_Plus_Orange_32x32_72 {
+            get {
+                object obj = ResourceManager.GetObject("_112_Plus_Orange_32x32_72", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _167 {
             get {
                 object obj = ResourceManager.GetObject("167", resourceCulture);
@@ -86,6 +106,36 @@ namespace SelfishNetv0.Properties {
         internal static System.Drawing.Bitmap _176 {
             get {
                 object obj = ResourceManager.GetObject("176", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DisconnectedDrive {
+            get {
+                object obj = ResourceManager.GetObject("DisconnectedDrive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Network_ConnectTo {
+            get {
+                object obj = ResourceManager.GetObject("Network_ConnectTo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Network_Map {
+            get {
+                object obj = ResourceManager.GetObject("Network_Map", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

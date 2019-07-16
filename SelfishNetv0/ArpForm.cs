@@ -199,7 +199,7 @@ namespace SelfishNetv0
             this.timer1.Interval = 1000;
             this.timer1.Start();
             this.timerSpoof.Start();
-            this.timerSpoof.Interval = 1000;
+            this.timerSpoof.Interval = 2000;
             this.toolStripButton2.Checked = true;
             this.toolStripButton2.Enabled = false;
             this.timerDiscovery.Start();
@@ -503,6 +503,18 @@ namespace SelfishNetv0
         private void ToolStripButton5_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void ToolStripButton6_Click(object sender, EventArgs e)
+        {
+            var rs = MessageBox.Show(this, "Quit ?", "Quit", MessageBoxButtons.YesNo);
+            if (rs == DialogResult.Yes) ArpForm.instance?.Dispose();
+            Environment.Exit(0);
+        }
+
+        private void ToolStripButton7_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Maximized;
         }
     }
 }

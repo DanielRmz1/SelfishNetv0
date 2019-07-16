@@ -132,6 +132,11 @@
     <None Include="Resources\172.png" />
     <None Include="Resources\167.png" />
     <None Include="Resources\176.png" />
+    <None Include="Resources\DisconnectedDrive.png" />
+    <None Include="Resources\112_Minus_Orange_32x32_72.png" />
+    <None Include="Resources\112_Plus_Orange_32x32_72.png" />
+    <None Include="Resources\Network_Map.png" />
+    <None Include="Resources\Network_ConnectTo.png" />
     <Content Include="this.Ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
